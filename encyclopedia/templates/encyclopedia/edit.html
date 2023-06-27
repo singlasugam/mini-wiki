@@ -1,0 +1,18 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+Edit 
+{% endblock %}
+
+{% block body %}
+
+{% if message %}
+    <h1>{{message}}</h1>
+{% endif %}
+    <form action='{% url 'update' heading %}' method='POST'>
+        {% csrf_token %}
+    <h1>Heading: <input type='text' placeholder='enter heading' value='{{heading}}' name='up_head'>  </h1>
+    <p> <input type='text' placeholder='enter markdown content' value='{{content}}' name='up_content' cols="50" rows="5">  </p>
+    <input type="submit" value="enter">
+    </form>
+{% endblock %}
